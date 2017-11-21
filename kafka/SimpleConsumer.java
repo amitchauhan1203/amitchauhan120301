@@ -17,7 +17,7 @@ public class SimpleConsumer {
       Properties props = new Properties();
       
       props.put("bootstrap.servers", "localhost:9092");
-      props.put("group.id", "testhdfs");
+      props.put("group.id", "testing");
       props.put("enable.auto.commit", "true");
       props.put("auto.commit.interval.ms", "1000");
       props.put("session.timeout.ms", "30000");
@@ -32,7 +32,7 @@ public class SimpleConsumer {
          <String, String>(props);
       
       //Kafka Consumer subscribes list of topics here.
-      consumer.subscribe(Arrays.asList("test_hdfs"));
+      consumer.subscribe(Arrays.asList("MARKS_DATA"));
       
       
       //print the topic name
@@ -44,7 +44,7 @@ public class SimpleConsumer {
          ConsumerRecords<String, String> records = consumer.poll(5);
          //String input = scanner.nextLine();
         // System.out.println(records.count());
-         //consumer.seek(new TopicPartition("MARKS_DATA", 0),Long.parseLong("2"));
+         consumer.seek(new TopicPartition("MARKS_DATA", 0),Long.parseLong("2"));
          for (ConsumerRecord<String, String> record : records)
          
          {// print the offset,key and value for the consumer records.
