@@ -39,7 +39,7 @@ public class SimpleConsumer {
       //System.out.println("Subscribed to topic " + topicName);
       int i = 0;
       Scanner scanner = new Scanner(System.in);
-      while (true) {
+      while (i<5) {
     	  
          ConsumerRecords<String, String> records = consumer.poll(5);
          //String input = scanner.nextLine();
